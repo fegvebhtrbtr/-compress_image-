@@ -1,142 +1,120 @@
-# 批量图片压缩工具
+# Batch Image Compression Tool
 
-一个基于Python的批量图片压缩工具，可指定目标文件大小和分辨率限制。
+A Python-based batch image compression tool that allows you to specify target file size and resolution limits.
 
-## 功能特性
+## Features
 
-- ✅ 批量压缩指定目录下的所有图片  
-- ✅ 支持多种图片格式（JPG/JPEG/PNG/BMP/TIFF/WEBP）  
-- ✅ 可设置最大文件大小（MB为单位）  
-- ✅ 可选设置最大宽度/高度限制  
-- ✅ 智能质量调整算法保持最佳视觉效果  
-- ✅ 非破坏性压缩（原始文件保持不变）  
+- ✅ Batch compress all images in a specified directory
+- ✅ Support for multiple image formats (JPG/JPEG/PNG/BMP/TIFF/WEBP)
+- ✅ Set maximum file size (in MB)
+- ✅ Optional maximum width/height limits
+- ✅ Intelligent quality adjustment algorithm to maintain optimal visual 效果
+- ✅ Non-destructive compression (original files remain unchanged)
 
-## 安装指南
+## Installation Guide
 
-### 前置要求
+### Prerequisites
 
-- Python 3.6或更高版本  
-- pip包管理工具  
+- Python 3.6 or higher
+- pip package management tool
 
-### 安装步骤
+### Installation Steps
 
-1. 克隆或下载本项目代码  
-2. 安装依赖项：  
+1. Clone or download the project code
+2. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+bash pip install -r requirements.txt 
 
-## 使用说明
+## Usage Instructions
 
-### 基本用法
+### Basic Usage
 
-```bash
-python compress_images.py <输入目录> <最大大小(MB)>
-```
+bash python compress_images.py <input directory> <maximum size (MB)> 
 
-示例：压缩`photos`目录下所有图片到2MB以下  
+Example: Compress all images in the photos directory to under 2MB
 
-```bash
-python compress_images.py ./photos 2
-```
+bash python compress_images.py ./photos 2 
 
-### 高级用法
+### Advanced Usage
 
-```bash
-python compress_images.py <输入目录> <最大大小(MB)> [最大宽度] [最大高度]
-```
+bash python compress_images.py <input directory> <maximum size (MB)> [maximum width] [maximum height] 
 
-示例1：压缩图片到1MB以下，并限制最大宽度为1920像素  
+Example 1: Compress images to under 1MB and limit maximum width to 1920 pixels
 
-```bash
-python compress_images.py ./photos 1 1920
-```
+bash python compress_images.py ./photos 1 1920 
 
-示例2：压缩图片到0.5MB以下，并限制最大分辨率为1920x1080  
+Example 2: Compress images to under 0.5MB and limit maximum resolution to 1920x1080
 
-```bash
-python compress_images.py ./photos 0.5 1920 1080
-```
+bash python compress_images.py ./photos 0.5 1920 1080 
 
-## 编译为可执行程序
+## Compiling to Executable
 
-### 方法一：使用PyInstaller（推荐）
+### Method 1: Using PyInstaller (Recommended)
 
-1. 安装编译工具：
-```bash
-pip install pyinstaller
-```
+1. Install the compilation tool:
+bash pip install pyinstaller 
 
-2. 执行编译（生成单个exe文件）：
-```bash
-pyinstaller --onefile --icon=app.ico compress_images.py
-```
-*注：`app.ico`为可选的应用图标文件*
+2. Execute the compilation (generate a single exe file):
+bash pyinstaller --onefile --icon=app.ico compress_images.py 
+Note: app.ico is an optional application icon file
 
-3. 编译完成后：
-   - Windows系统：在`dist/`目录生成`compress_images.exe`
-   - Linux系统：在`dist/`目录生成可执行文件
+3. After compilation:
+- Windows system: compress_images.exe is generated in the dist/ directory
+- Linux system: An executable file is generated in the dist/ directory
 
-### 方法二：使用auto-py-to-exe（图形界面）
+### Method 2: Using auto-py-to-exe (Graphical Interface)
 
-1. 安装工具：
-```bash
-pip install auto-py-to-exe
-```
+1. Install the tool:
+bash pip install auto-py-to-exe 
 
-2. 启动图形界面：
-```bash
-auto-py-to-exe
-```
-在界面中选择：
-- Python文件：`compress_images.py`
-- 勾选"One File"模式
-- 可添加ICO图标文件
-- 点击"CONVERT .PY TO .EXE"
+2. Start the graphical interface:
+bash auto-py-to-exe 
+In the interface, select:
+- Python file: compress_images.py
+- Check "One File" mode
+- You can add an ICO icon file
+- Click "CONVERT .PY TO .EXE"
 
-### 编译注意事项
+### Compilation Notes
 
-1. **图标文件要求**：
-   - 必须是`.ico`格式
-   - 推荐包含16x16/32x32/48x48/256x256多尺寸
-   - 可使用在线工具将PNG转换为ICO
+1. Icon File Requirements:
+- Must be in .ico format
+- Recommended to include multiple sizes such as 16x16/32x32/48x48/256x256
+- Online tools can be used to convert PNG to ICO
 
-2. **跨平台编译**：
-   - Windows系统编译Windows版本
-   - Linux系统编译Linux版本
-   - Mac系统需使用`py2app`工具
+2. Cross-Platform Compilation:
+- Compile the Windows version on a Windows system
+- Compile the Linux version on a Linux system
+- Use the py2app tool on Mac systems
 
-## 输出说明
+## Output Explanation
 
-程序会在输入目录下创建`compressed`子目录，所有压缩后的图片将保存在此目录中。  
+The program will create a compressed subdirectory in the input directory, and all compressed images will be saved in this directory.
 
-处理过程中会显示：  
-- 当前正在处理的文件  
-- 原始文件大小  
-- 压缩后文件大小  
+During processing, it will display:
+- The file currently being processed
+- The original file size
+- The compressed file size
 
-## 注意事项
+## Precautions
 
-1. 程序不会修改原始图片文件  
-2. 对于已经小于目标大小的图片，程序会跳过压缩  
-3. 建议对大尺寸图片同时设置分辨率限制以获得更好的压缩效果  
-4. 压缩质量在85-10之间自动调整以符合大小限制  
+1. The program will not modify the original image files
+2. Images that are already smaller than the target size will be skipped
+3. It is recommended to set resolution limits for large images to achieve better compression 效果
+4. The compression quality is automatically adjusted between 85-10 to meet size limits
 
-## 常见问题
+## Frequently Asked Questions
 
-**Q: 程序支持哪些图片格式？**  
-A: 支持JPG、JPEG、PNG、BMP、TIFF和WEBP格式  
+Q: What image formats does the program support?
+A: It supports JPG, JPEG, PNG, BMP, TIFF, and WEBP formats
 
-**Q: 压缩后的图片会降低分辨率吗？**  
-A: 只有在指定了最大宽度/高度参数时才会调整分辨率，否则仅调整压缩质量  
+Q: Will the resolution of compressed images be reduced?
+A: The resolution will only be adjusted if maximum width/height parameters are specified; otherwise, only the compression quality is adjusted
 
-**Q: 为什么编译后的exe文件很大？**  
-A: 这是PyInstaller打包Python解释器的正常现象，可用UPX压缩减小体积：
-```bash
-pyinstaller --onefile --upx-dir=path/to/upx compress_images.py
-```
+Q: Why is the compiled exe file so large?
+A: This is a normal phenomenon when PyInstaller packages the Python interpreter. You can use UPX compression to reduce the size:
+bash pyinstaller --onefile --upx-dir=path/to/upx compress_images.py 
 
-## 许可证
+## License
 
-本项目使用MIT许可证  
+This project uses the MIT license
