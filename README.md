@@ -121,12 +121,15 @@ During processing, it displays:
 ## Frequently Asked Questions
 
 **Q: What image formats does the program support?**
+
 A: Supports JPG, JPEG, PNG, BMP, TIFF, and WEBP formats
 
 **Q: Will compressed images have reduced resolution?**
+
 A: Resolution is only adjusted if maximum width/height parameters are specified; otherwise, only compression quality is modified
 
 **Q: Why is the compiled exe file large?**
+
 A: This is normal as PyInstaller packages the Python interpreter. Reduce size with UPX compression:
 ```bash
 pyinstaller --onefile --upx-dir=path/to/upx compress_images.py
